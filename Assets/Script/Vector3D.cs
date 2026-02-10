@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Vector3D : MonoBehaviour
@@ -97,6 +98,9 @@ public class Vector3D : MonoBehaviour
     {
         Vector3D vector3D = gameObject.AddComponent<Vector3D>();
         Vector3D vec = vector3D;
+        Vector3D vec1 = new Vector3D(2.0f, 4.0f, 8.0f);
+        Vector3D vec2 = new Vector3D(1.0f, 5.0f, 3.0f);
+        Escalar(2.0f);
     }
 
 
