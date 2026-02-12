@@ -268,9 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a68f2421351b2f48a6b51ce66325b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vector3D
-  x: 0
-  y: 0
-  z: 0
+  x: 2
+  y: 4
+  z: 6
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

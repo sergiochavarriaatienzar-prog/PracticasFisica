@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -7,22 +8,18 @@ public class Vector3D : MonoBehaviour
     public float y;
     public float z;
 
-    public Vector3D v;
-    public Vector3D u;
-
-
     Vector3D()
     {
-        x = 0f;
-        y = 0f;
-        z = 0f;
+        x = 2f;
+        y = 4f;
+        z = 6f;
     }
 
     Vector3D(float x, float y, float z)
     {
         x = 1;
-        y = 4;
-        z = 6;
+        y = 5;
+        z = 3;
     }
 
     public float Magnitud()
@@ -30,7 +27,7 @@ public class Vector3D : MonoBehaviour
         return Mathf.Sqrt(x * x + y * y + z * z);
     }
 
-    Vector3D(float modulo,float aplhaX, float alphaY, float alphaZ)
+    Vector3D(float modulo, float aplhaX, float alphaY, float alphaZ)
     {
         x = modulo * Mathf.Cos(aplhaX);
         y = modulo * Mathf.Cos(alphaY);
@@ -45,23 +42,21 @@ public class Vector3D : MonoBehaviour
         z = z / mag;
     }
 
-    public Vector3D Suma(Vector3D vec)
+    public Vector3D Suma(Vector3D vector)
     {
-        Vector3D vec1 = new Vector3D(1.0f, 2.0f, 3.0f);
-        Vector3D vec2 = new Vector3D(2.0f, 1.0f, 0.0f);
-        Vector3D vectorSuma = vec1.Suma(vec2);
-        
-        Vector3D resultadoSuma = new Vector3D();
-        resultadoSuma.x = this.x + vec.x;
-        return resultadoSuma;
+
+        float sumaX = this.x + vector.x;
+        float sumaY = this.y + vector.y;
+        float sumaZ = this.z + vector.z;
+        return new Vector3D(sumaX, sumaY, sumaZ);
     }
 
-    public Vector3D Resta(Vector3D vec)
+    public Vector3D Resta(Vector3D vector)
     {
-        Vector3D vec1 = new Vector3D(10.0f, 20.0f, 30.0f);
-        Vector3D vec2 = new Vector3D(15.0f, 8.0f, 22.0f);
-        Vector3D vectorResta = vec1.Resta(vec2);
-        return vectorResta;
+        float restaX = this.x - vector.x;
+        float restaY = this.y - vector.y;
+        float restaZ = this.z - vector.z;
+        return new Vector3D(restaX, restaY, restaZ);
     }
 
     public void Escalar(float number)
@@ -71,26 +66,21 @@ public class Vector3D : MonoBehaviour
         z *= number;
     }
 
-    public float ProductoEscalar(Vector3D vec)
+    public float ProductoEscalar(Vector3D vector)
     {
-        float[] v = { 2.0f, 4.0f, 5.0f };
-        float[] u = { 1.0f, 8.0f, 3.0f };
-        float resultadoPordE = 0f;
+        float multX = this.x * vector.x;
+        float multY = this.y * vector.y;
+        float multZ = this.z * vector.z;
+        float sumaProdE = multX + multY + multZ;
 
-        for (int i = 0; i < 3; i++)
-        {
-            resultadoPordE += v[i] * u[i];
-        }
-
-        return resultadoPordE;
+        return sumaProdE;
     }
 
-    public Vector3D ProductoVectorial()
+    public Vector3D ProductoVectorial(Vector3D vector)
     {
-
-        float xv = (v.y * u.z) - (v.z * u.y);
-        float yv = (v.z * u.x) - (v.x * u.z);
-        float zv = (v.x * u.y) - (v.y * u.x);
+        float xv = (this.y * vector.z) - (this.z * vector.y);
+        float yv = (this.z * vector.x) - (this.x * vector.z);
+        float zv = (this.x * vector.y) - (this.y * vector.x);
 
         return new Vector3D(xv, yv, zv);
     }
@@ -100,17 +90,6 @@ public class Vector3D : MonoBehaviour
         Vector3D vec = vector3D;
         Vector3D vec1 = new Vector3D(2.0f, 4.0f, 8.0f);
         Vector3D vec2 = new Vector3D(1.0f, 5.0f, 3.0f);
-        vec1.Magnitud();
-        vec2.Magnitud();
-        vec1.Normalize();
-        vec2.Normalize();
-        vec1.Escalar(2.0f);
-        vec2.Escalar(2.0f);
-    }
 
-
-    void Update()
-    {
-        
     }
 }
