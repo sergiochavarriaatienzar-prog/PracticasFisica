@@ -100,7 +100,12 @@ public class Vector3D : MonoBehaviour
         Vector3D vec = vector3D;
         Vector3D vec1 = new Vector3D(2.0f, 4.0f, 8.0f);
         Vector3D vec2 = new Vector3D(1.0f, 5.0f, 3.0f);
-        Escalar(2.0f);
+        vec1.Magnitud();
+        vec2.Magnitud();
+        vec1.Normalize();
+        vec2.Normalize();
+        vec1.Escalar(2.0f);
+        vec2.Escalar(2.0f);
     }
 
 
